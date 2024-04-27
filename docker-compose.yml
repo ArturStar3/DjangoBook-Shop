@@ -1,14 +1,43 @@
 version: '3.9'
 
 services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - rabbitmq
+      - celery
+
   rabbitmq:
-    image: rabbitmq:3-management-alpine
-    container_name: 'rabbitmq'
+    image: rabbitmq:3-management
     ports:
       - 5672:5672
       - 15672:15672
+
   celery:
-    build: .
-    command: celery -A myshop worker -l info
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: celery -A myshop worker -l info --pool=solo
+    volumes:
+      - .:/code
     depends_on:
+      - rabbitmq
+
+  flower:
+    build:
+      context: .
+    command: celery -A myshop flower
+    volumes:
+      - .:/code
+    ports:
+      - 5555:5555
+    depends_on:
+      - django
       - rabbitmq
