@@ -14,6 +14,7 @@ services:
     depends_on:
       - rabbitmq
       - celery
+      - stripe-cli
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -42,3 +43,10 @@ services:
     depends_on:
       - django
       - rabbitmq
+
+  stripe-cli:
+    image: stripe/stripe-cli:v1.19.4
+    container_name: stripe-cli
+    command: listen --forward-to django:8000/payment/webhook
+    ports:
+      - 5000:5000

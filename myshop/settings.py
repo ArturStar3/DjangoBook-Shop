@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ups_)d3)5w6g-1e7hu4$$%s_+m7n#$$l9i!k$&y*4e^j$yk@_a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'django']
 
 
 # Application definition
@@ -142,3 +142,5 @@ STRIPE_PUBLISHABLE_KEY = "pk_test_51Ofj3rETQ4M7sV5E3odqpikp3CrLzuhCC5bFzcLws9P8n
 STRIPE_SECRET_KEY = "sk_test_51Ofj3rETQ4M7sV5EeNOBtuIoAAtbaKwIrR2GR5bEZAVOZtnvMsIxcBITZAmAWmqpFCnwQuY0Z02EuriuP9GUeC4j00KkrcU7bn"
 
 STRIPE_API_VERSION = "2022-08-01"
+
+STRIPE_WEBHOOK_SECRET = "whsec_9ff3a4d1f4c3959bf730c03997b268a01fd63ca0703c3fac4080c4d51a3ee46d"
