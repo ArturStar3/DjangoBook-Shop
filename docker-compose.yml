@@ -41,8 +41,7 @@ services:
     ports:
       - 5555:5555
     depends_on:
-      - django
-      - rabbitmq
+      - celery
 
   stripe-cli:
     image: stripe/stripe-cli:v1.19.4
