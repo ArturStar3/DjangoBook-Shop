@@ -49,3 +49,8 @@ services:
     command: listen --forward-to django:8000/payment/webhook
     ports:
       - 5000:5000
+
+  redis:
+    image: redis:6.2
+    ports:
+      - 6379:6379
