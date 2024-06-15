@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ups_)d3)5w6g-1e7hu4$$%s_+m7n#$$l9i!k$&y*4e^j$yk@_a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'django']
+ALLOWED_HOSTS = ['localhost', 'django', 'redis']
 
 
 # Application definition
@@ -147,6 +147,6 @@ STRIPE_API_VERSION = "2022-08-01"
 
 STRIPE_WEBHOOK_SECRET = "whsec_9ff3a4d1f4c3959bf730c03997b268a01fd63ca0703c3fac4080c4d51a3ee46d"
 
-REDIS_HOST = 'redis'
+REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 1
