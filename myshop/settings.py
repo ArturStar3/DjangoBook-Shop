@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
-    'rosetta'
+    'rosetta',
+    'parler',
 ]
 
 MIDDLEWARE = [
@@ -160,3 +161,15 @@ STRIPE_WEBHOOK_SECRET = "whsec_9ff3a4d1f4c3959bf730c03997b268a01fd63ca0703c3fac4
 REDIS_HOST = 'redis'
 REDIS_PORT = 6379
 REDIS_DB = 1
+
+# Настройка django-parler
+PARLER_LANGUAGES = {
+    None:(
+        {'code': 'en'},
+        {'code': 'es'}
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untrasleted': False,
+    }
+}
